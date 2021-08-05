@@ -21,3 +21,4 @@ Route:: get("/phpturkiye/{isim}",[Ornek::class,'test']);
 //web sayfasi uzerinde controller kullanimi&baglantisi
 Route:: get("/url",[Deneme::class,'fonksiyonismi']);
 //ustteki kalip seklinde
+Route:: get("/web",[Yonet::class,'site'])->name('karegen');
