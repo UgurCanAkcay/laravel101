@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Ornek;
 use App\Http\Controllers\Deneme;
-
-
+use App\Http\Controllers\Yonet;
+use App\Http\Controllers\Formislemleri;
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,3 +22,13 @@ Route:: get("/phpturkiye/{isim}",[Ornek::class,'test']);
 Route:: get("/url",[Deneme::class,'fonksiyonismi']);
 //ustteki kalip seklinde
 Route:: get("/web",[Yonet::class,'site'])->name('karegen');
+//form islemleri icin rota belirliyoruz
+Route:: get("/form",[Formislemleri::class,'gorunum']);
+//request islemi uzerinden veriyi aliriz -php de post mantigi ile ayni tip-
+//middleware kontrol saglar;
+  //eger kotnrolden sorunsuz gecerse bir sonraki adima gecer
+//ornek olarak kullanicilarin uye girisinde; eger giris yaptiysa isleme devam etsin, giris yapilmadiysa giris asamasina gonderme
+  //yani yukaridaki belirtilen durumda kullanicinin giris yapıp yapmamasini middleware sayesinde anlamis oluruz
+Route:: middleware('arakontrol')->post("/form-sonuc",[Formislemleri::class,'sonuc'])->name('sonuc');
+//middleware u yukaridaki gibi route uzerinden yukaridaki gibi isimli olarak kullanabilmek icin;
+    //kernel dosyasindaki routeMiddleware de anahtar kelime ile tanimlama yapilmasi gereklidir
