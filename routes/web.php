@@ -6,6 +6,10 @@ use App\Http\Controllers\Ornek;
 use App\Http\Controllers\Deneme;
 use App\Http\Controllers\Yonet;
 use App\Http\Controllers\Formislemleri;
+use App\Http\Controllers\Veritabaniislemleri;
+
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -32,3 +36,8 @@ Route:: get("/form",[Formislemleri::class,'gorunum']);
 Route:: middleware('arakontrol')->post("/form-sonuc",[Formislemleri::class,'sonuc'])->name('sonuc');
 //middleware u yukaridaki gibi route uzerinden yukaridaki gibi isimli olarak kullanabilmek icin;
     //kernel dosyasindaki routeMiddleware de anahtar kelime ile tanimlama yapilmasi gereklidir
+
+Route:: get("/ekle",[Veritabaniislemleri::class,'ekle']);
+Route:: get("/guncelle",[Veritabaniislemleri::class,'guncelle']);
+Route:: get("/sil",[Veritabaniislemleri::class,'sil']);
+Route:: get("/listele",[Veritabaniislemleri::class,'bilgiler']);
