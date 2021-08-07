@@ -28,10 +28,10 @@ class Veritabaniislemleri extends Controller
     }
     public function bilgiler()
     {
-      $veriler=DB::table("Bilgiler")->get();
+    /*  $veriler=DB::table("bilgiler")->get();
       //herhangi bir şart belirtmeden eldeki bütün veriler okumak için bu şekilde get ile verileri okuma islemi yapılabilir.
 
-      foreach ($veriler as $key => $bilgi) {
+     foreach ($veriler as $key => $bilgi) {
         echo $bilgi->metin;
         //Çıktı olarak id almak istersek echo $bilgi->id; diye belirtmemiz gerekir
 
@@ -39,7 +39,7 @@ class Veritabaniislemleri extends Controller
         echo $bilgi->id."".$bilgi->metin;
         echo "<br>";
         // code...
-
+*/
 
       //Eger tek bir veri döndürmek/göstermek istersek;
         //for döngüsü kullanarak programı yormak yerine alttaki şekilde yazabiliriz.
