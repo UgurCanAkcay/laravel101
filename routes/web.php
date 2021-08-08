@@ -8,7 +8,7 @@ use App\Http\Controllers\Yonet;
 use App\Http\Controllers\Formislemleri;
 use App\Http\Controllers\Veritabaniislemleri;
 use App\Http\Controllers\Modelislemleri;
-
+use App\Http\Controllers\Iletisim;
 
 Route::get('/', function () {
     return view('welcome');
@@ -47,3 +47,6 @@ Route:: get("/modelliste",[Modelislemleri ::class,'liste']);
 Route:: get("/modelekle",[Modelislemleri ::class,'ekle']);
 Route:: get("/modelguncelle",[Modelislemleri ::class,'guncelle']);
 Route:: get("/modelsil",[Modelislemleri ::class,'sil']);
+
+Route:: get("/iletisim",[Iletisim ::class,'index']);
+Route:: post("/iletisim-sonuc",[Iletisim ::class,'eklme'])->name("iletisim-sonuc");
