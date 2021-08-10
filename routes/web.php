@@ -65,3 +65,37 @@ Route::get('/uye', function(){
   return view('uyelik');
 });
 Route::post('/uye-kayit',[App\Http\Controllers\Uyelikislemleri::class,'uyekayit'])->name('uyekayit');
+
+
+Route::get('/tema/home', function(){
+  return view('sayfalar.home');
+});
+Route::get('/tema/galeri', function(){
+  return view('sayfalar.galeri');
+});
+Route::get('/tema/hizmetler', function(){
+  return view('sayfalar.hizmetler');
+});
+Route::get('/tema/iletisim', function(){
+  return view('sayfalar.iletisim');
+});
+Route::get('/tema/kurumsal', function(){
+  return view('sayfalar.kurumsal');
+});
+
+Route::get('/resim', function(){
+//insert islemi $img = Image::make('images/267.jpg')->resize(320, 240)->insert('images/267.jpg');
+// kendi boyutunda gormek icin $img = Image::make('images/267.jpg');
+/*
+$img = Image::make('images/267.jpg')->resize(320, 240);
+$img->save("php_oran.jpg");
+return $img->response('jpg');
+*/
+$img = Image::make('yeniresim.jpg')->greyscale();
+return $img->response('jpg');
+//return view("resim");
+});
+
+Route::post("/yukle",funciton(){
+  Image::make(request()->file('resim'))->resize(300, 200)->save('yeniresim.jpg');
+})->name("yukle");
